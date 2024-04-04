@@ -1,0 +1,284 @@
+<!-- register.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <style>
+        /* Start Variables */
+:root {
+  --main-color: #10cab7;
+  --secondary-color: #2c4755;
+  --section-padding: 60px;
+  --section-background: #f6f6f6;
+  --main-duration: 0.5s;
+}
+/* End Variables */
+/* Start Global Rules */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Work Sans", sans-serif;
+  /* width: 100%; */
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* End Global Rules */
+/* Start Components */
+.special-heading {
+  color: #ebeced;
+  font-size: 100px;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: -3px;
+  margin: 0;
+}
+.special-heading + p {
+  margin: -30px 0 0;
+  font-size: 20px;
+  text-align: center;
+  color: #797979;
+}
+@media (max-width: 767px) {
+  .special-heading {
+    font-size: 60px;
+  }
+  .special-heading + p {
+    margin-top: -20px;
+  }
+}
+/* End Components */
+/* Start Header */
+.header {
+  padding: 20px;
+  background-color: #9c9494;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header{
+  width: 100%;
+} 
+.logo {
+  width: 100px;
+} 
+/* End Header */
+/* Start Landing Section */
+.landing {
+  background-size: cover;
+  height: calc(100vh - 64px);
+  position: relative;
+  background-color: #f0eaea;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.landing .intro-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  max-width: 100%;
+}
+.landing .intro-text h1 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 50px;
+  color: var(--main-color);
+}
+.landing .intro-text p {
+  font-size: 19px;
+  line-height: 1.8;
+}
+/* End Landing Section */
+/* Start Features */
+.features {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background-color: var(--section-background);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+
+}
+.features .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+.features .feat {
+  padding: 20px;
+  text-align: center;
+}
+.features .feat i {
+  color: var(--main-color);
+}
+.features .feat h3 {
+  font-weight: 800;
+  margin: 30px 0;
+}
+.features .feat p {
+  line-height: 1.8;
+  color: #777;
+  font-size: 17px;
+}
+/* End Features */
+/* Start Footer */
+.footer {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 30px 10px;
+  text-align: center;
+  font-size: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+
+}
+.footer span {
+  font-weight: bold;
+  color: var(--main-color);
+}
+/* End Footer */
+
+
+.header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header ul li {
+  display: inline-block; /* Change from inline to inline-block */
+  margin-right: 10px;
+}
+
+.header ul li a {
+  display: inline-block; /* Add this */
+  padding: 8px 16px; /* Adjust padding as needed */
+  color: #ebe1e1;
+  text-decoration: none;
+  border: 1px solid #ebe1e1; /* Add border */
+  border-radius: 4px; /* Add border-radius for rounded corners */
+  transition: background-color 0.8s ease, color 0.8s ease, border-color 0.8s ease; /* Add transition for smooth hover effect */
+  font-size: 15px;
+}
+
+.header ul li a:hover {
+  background-color: #ebe1e1; /* Change background color on hover */
+  color: #333; /* Change text color on hover */
+  border-color: #333; /* Change border color on hover */
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <ul>
+                <!-- Add Home Button -->
+                <li><a href="/">Home</a></li>
+                <!-- Add Back Button (with JavaScript back function) -->
+                <li><a href="javascript:history.back()">Back</a></li>
+                <!-- Add Authentication Links -->
+                <li><a href="/users/register">Register</a></li>
+                <li><a href="/users/login">Login</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6 m-auto">
+                <div class="card card-body">
+                    <h1 class="text-center mb-3">
+                        <i class="fas fa-user-plus"></i> Register
+                    </h1>
+                    <%- include("./messages") %>
+                    <form action="/users/register" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                class="form-control"
+                                placeholder="Enter Name"
+                                value="<%= typeof name !== 'undefined' ? name : '' %>"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="form-control"
+                                placeholder="Enter Email"
+                                value="<%= typeof email !== 'undefined' ? email : '' %>"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                class="form-control"
+                                placeholder="Create Password"
+                                value="<%= typeof password !== 'undefined' ? password : '' %>"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="password2">Confirm Password</label>
+                            <input
+                                type="password"
+                                id="password2"
+                                name="password2"
+                                class="form-control"
+                                placeholder="Confirm Password"
+                                value="<%= typeof password2 !== 'undefined' ? password2 : '' %>"
+                            />
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Register
+                        </button>
+                    </form>
+                    <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+       <!-- Start Footer -->
+       <div class="footer">&copy; 2024 <span>Ali Hamza</span> All Right Reserved</div>
+       <!-- End Footer -->
+</body>
+</html>

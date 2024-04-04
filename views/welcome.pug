@@ -1,0 +1,58 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Passport Authentication
+    style 
+      include ./leon.css
+  body
+    // Start Header
+    .header
+      .container
+        ul
+          // Add Home Button
+          li
+            a(href="/") Home
+          // Add Back Button (with JavaScript back function)
+          li
+            a(href="javascript:history.back()") Back
+          // Add Authentication Links
+          li
+            a(href="/users/register") Register
+          li
+            a(href="/users/login") Login
+    // End Header
+
+    // Start Landing Section
+    .landing
+      .intro-text
+        h1 Passport Authentication
+        p Secure your website with Passport authentication.
+    // End Landing Section
+
+    // Start Features
+    .features
+      img.features(src="landing.jpg", alt="")
+
+      .container
+        .feat
+          i.fas.fa-lock.fa-3x
+          h3 Secure Access
+          p Passport provides robust authentication mechanisms to ensure secure access to your website.
+        .feat
+          i.fas.fa-user-check.fa-3x
+          h3 User Authentication
+          p Authenticate users easily using Passport's flexible and customizable strategies.
+        .feat
+          i.fas.fa-shield-alt.fa-3x
+          h3 Protection Against Attacks
+          p Protect your website from common attacks such as brute force, session hijacking, and more with Passport.
+    // End Features
+
+    // Start Footer
+    .footer &copy; 2024 
+      span Ali Hamza 
+      | All Right Reserved
+    // End Footer
