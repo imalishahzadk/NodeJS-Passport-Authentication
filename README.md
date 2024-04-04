@@ -1,0 +1,1 @@
+This Node.js authentication app encompasses login, registration, and access control functionalities. Leveraging technologies like Express, Passport, and Mongoose, it ensures secure user authentication and authorization, providing a robust framework for managing user access to resources.
